@@ -35,9 +35,15 @@ const BmiCalculator = () => {
 
   useEffect(() => {
     document.title = `Your BMI: ${getBmi(height, weight)}`
+  }, [height, weight])
+
+  useEffect(() => {
     localStorage.setItem('height', JSON.stringify(height))
+  }, [height])
+
+  useEffect(() => {
     localStorage.setItem('weight', JSON.stringify(weight))
-  })
+  }, [weight])
 
   const onIncrementWeight = () => {
     setWeight(prevWeight => prevWeight + 1)
